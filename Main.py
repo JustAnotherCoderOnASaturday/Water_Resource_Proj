@@ -1,5 +1,4 @@
 import urllib.request
-import yaml
 
 
 def request():
@@ -9,12 +8,7 @@ def request():
     except ConnectionError:
         print("[-] Failed to retrieve from website")
 
-    data = yaml.load(http_response).split(' ')
-    print(data)
-    #[{station_id: 0, angles_degrees: 90}, {}]
-    print("station_id angle_degrees")
-    for value in data[2:]:
-        print(value)
+    print(http_response.read().decode('utf-8'))
 
 
 if __name__ == '__main__':
